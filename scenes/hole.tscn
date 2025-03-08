@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7t4y8toiaiw4"]
+
+[ext_resource type="Script" path="res://scripts/hole.gd" id="1_1ng6a"]
+[ext_resource type="Texture2D" uid="uid://d0id6op6ivdkj" path="res://assets/HoleBack.png" id="1_vqnam"]
+[ext_resource type="Texture2D" uid="uid://dif5wsodn8jb0" path="res://assets/Mole.png" id="2_yogco"]
+[ext_resource type="Texture2D" uid="uid://cduxydhacya2u" path="res://assets/HoleFront.png" id="3_g2qsv"]
+[ext_resource type="Texture2D" uid="uid://cd40gtddwdtvl" path="res://assets/1x1.png" id="5_ycmqf"]
+
+[node name="Hole" type="Node2D"]
+position = Vector2(555, 284)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_1ng6a")
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("1_vqnam")
+
+[node name="Mole" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 109)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_yogco")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -115.0
+offset_top = 31.0
+offset_right = 114.0
+offset_bottom = 247.0
+color = Color(0.498039, 0.270588, 0.0745098, 1)
+
+[node name="Front" type="Sprite2D" parent="."]
+texture = ExtResource("3_g2qsv")
+
+[node name="mole up" type="Marker2D" parent="."]
+position = Vector2(0, -87)
+
+[node name="mole down" type="Marker2D" parent="."]
+position = Vector2(0, 118.667)
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.568627, 0.262745, 0.854902, 0)
+offset_left = -82.0
+offset_top = -146.0
+offset_right = -73.0
+offset_bottom = -137.0
+scale = Vector2(17.9846, 18.7724)
+icon = ExtResource("5_ycmqf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

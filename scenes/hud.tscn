@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjov3ra7oeor7"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_l1g7k"]
+[ext_resource type="FontFile" uid="uid://wirx6ymm07ce" path="res://assets/fonts/Blomberg-8MKKZ.otf" id="2_q1ou1"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_l1g7k")
+
+[node name="Timelabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -660.0
+offset_right = -371.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_q1ou1")
+theme_override_font_sizes/font_size = 75
+text = "Time:60"
+
+[node name="Scorelabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1357.0
+offset_right = 1550.0
+offset_bottom = 71.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_q1ou1")
+theme_override_font_sizes/font_size = 75
+text = "Score:0"
+
+[node name="Lives" type="Label" parent="."]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 4.0
+offset_right = 1178.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_q1ou1")
+theme_override_font_sizes/font_size = 75
+text = "lives: 3"

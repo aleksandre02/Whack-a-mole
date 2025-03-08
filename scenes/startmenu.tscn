@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck7daw0x6sdv1"]
+
+[ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_litif"]
+[ext_resource type="PackedScene" uid="uid://bmbouwh6dko6m" path="res://scenes/bg.tscn" id="2_r7s4l"]
+[ext_resource type="FontFile" uid="uid://wirx6ymm07ce" path="res://assets/fonts/Blomberg-8MKKZ.otf" id="3_o2w45"]
+[ext_resource type="Texture2D" uid="uid://dif5wsodn8jb0" path="res://assets/Mole.png" id="4_7pkn4"]
+[ext_resource type="Texture2D" uid="uid://c7ct4kgan2nv5" path="res://assets/illustration-sledge-hammer-png.png" id="5_gcfqx"]
+[ext_resource type="Texture2D" uid="uid://da2xvi1yw2raj" path="res://assets/MoleHatHit.png" id="6_hc18q"]
+
+[node name="Startmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_litif")
+
+[node name="BG" parent="." instance=ExtResource("2_r7s4l")]
+layout_mode = 0
+offset_top = 0.0
+offset_bottom = 1080.0
+
+[node name="Gamenamelabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -570.0
+offset_top = 89.0
+offset_right = 574.0
+offset_bottom = 275.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.984314, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("3_o2w45")
+theme_override_font_sizes/font_size = 200
+text = "WHACK A MOLE"
+
+[node name="Start" type="Button" parent="."]
+modulate = Color(0.256, 0.96, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -51.0
+offset_right = 120.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o2w45")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="Exit" type="Button" parent="."]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 769.0
+offset_top = 669.0
+offset_right = 1164.0
+offset_bottom = 766.0
+theme_override_fonts/font = ExtResource("3_o2w45")
+theme_override_font_sizes/font_size = 95
+text = "Exit game
+"
+
+[node name="mole" type="Sprite2D" parent="."]
+position = Vector2(197, 915)
+scale = Vector2(1.35156, 1.26562)
+texture = ExtResource("4_7pkn4")
+
+[node name="hammer" type="Sprite2D" parent="."]
+position = Vector2(2249, 300)
+rotation = 0.663252
+scale = Vector2(3.12, 3)
+texture = ExtResource("5_gcfqx")
+
+[node name="molehit" type="Sprite2D" parent="."]
+position = Vector2(1630, 572)
+rotation = -0.51428
+texture = ExtResource("6_hc18q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Highscorelabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1325.0
+offset_top = 875.0
+offset_right = 1807.0
+offset_bottom = 932.0
+theme_override_colors/font_color = Color(1, 0.984314, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_o2w45")
+theme_override_font_sizes/font_size = 60
+text = "Highest score:9999"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuowyxrc0ebun"]
+
+[ext_resource type="PackedScene" uid="uid://bmbouwh6dko6m" path="res://scenes/bg.tscn" id="1_txosx"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_y5uqc"]
+[ext_resource type="PackedScene" uid="uid://b7t4y8toiaiw4" path="res://scenes/hole.tscn" id="2_4705q"]
+[ext_resource type="PackedScene" uid="uid://dk7nabjwrummf" path="res://scenes/ui.tscn" id="4_7aoh3"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_y5uqc")
+
+[node name="BG" parent="." instance=ExtResource("1_txosx")]
+offset_left = -6.10352e-05
+offset_top = 0.999939
+
+[node name="Holecontainer" type="Node" parent="."]
+
+[node name="Hole" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(962, 634)
+
+[node name="Hole9" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(1637, 924)
+
+[node name="Hole5" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(962, 275)
+
+[node name="Hole2" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(249, 634)
+
+[node name="Hole3" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(1634, 609)
+
+[node name="Hole4" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(1634, 275)
+
+[node name="Hole6" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(244, 275)
+
+[node name="Hole7" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(244, 924)
+
+[node name="Hole8" parent="Holecontainer" instance=ExtResource("2_4705q")]
+position = Vector2(964, 924)
+
+[node name="UI" parent="." instance=ExtResource("4_7aoh3")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Game_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Game_timer" to="." method="_on_game_timer_timeout"]
